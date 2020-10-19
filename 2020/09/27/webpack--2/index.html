@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaScript基础学习---（一）, 前端">
+    <meta name="keywords" content="前端">
     <meta name="description" content="Begin now">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JavaScript基础学习---（一） | Crazyegg&#39;s blog</title>
+    <title>Crazyegg&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -415,12 +415,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JavaScript基础学习---（一）</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -535,13 +535,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -553,7 +549,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-21
+                    2020-09-27
                 </div>
                 
 
@@ -569,95 +565,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="变量命名方式"><a href="#变量命名方式" class="headerlink" title="变量命名方式"></a>变量命名方式</h3><ul>
-<li>驼峰式(great)<br>fontColor</li>
-<li>下划线<br>font_color<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3>const  FIVE_SECONDS = 5000;  </li>
-<li>常量不可改变<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
-<li>boolean – <em>false</em> and <em>true</em>  </li>
-<li>number  –  数字类型</li>
-<li>string  – 字符串</li>
-<li>undefined – 未定义的</li>
-<li>null – 已经赋值且值为空（为typeof(null) 为 Object）<br>（object – 对象， array – 数组，function – 方法）<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3></li>
-</ul>
-<ul>
-<li><strong>typeof()</strong> – 判断数据类型</li>
-</ul>
+                <h2 id="webpack中处理css文件"><a href="#webpack中处理css文件" class="headerlink" title="webpack中处理css文件"></a>webpack中处理css文件</h2><p>1.如果想要处理.css后缀名的文件，需要安装并配置两个合适的loader<code>style-loader</code>和<code>css-loader</code></p>
+<pre><code>cnpm i style-loader@0.23.1 css-loader@0.23.1 -D</code></pre>
+<p>2.在webpack.config.js中编写module(与plugins同级)配置非js文件和loader之间的对应关系</p>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    rules<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>test<span class="token punctuation">:</span><span class="token regex">/\.css$/</span><span class="token punctuation">,</span>use<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">]</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建处理css文件的loader匹配规则</span>
+    <span class="token punctuation">]</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<ol start="3">
+<li><p>在main.js中导入js <code>import &quot;./css/index.css&quot;;</code></p>
+<blockquote>
+<p>在webpack 中，所有的静态资源都是一个模块</p>
+</blockquote>
 </li>
+</ol>
+<h3 id="第三方loader和webpack之间的调用关系"><a href="#第三方loader和webpack之间的调用关系" class="headerlink" title="第三方loader和webpack之间的调用关系"></a>第三方loader和webpack之间的调用关系</h3><p>1.webpack只能处理.js文件</p>
+<p>2.当webpack处理其他的文件时，不会之间报错，而是，检查<code>webpack.config.js</code>中是否有处理文件的<code>loader</code>如果没有就报错如果有，它的调用顺序是从后向前，最后一个处理结果打包到bundle.js中。</p>
+<h4 id="如果要处理-less后缀名的文件，需要安装-x6c-x65-115-115-45-x6c-111-x61-100-x65-114-x40-x35-46-48-46-48-less"><a href="#如果要处理-less后缀名的文件，需要安装-x6c-x65-115-115-45-x6c-111-x61-100-x65-114-x40-x35-46-48-46-48-less" class="headerlink" title="如果要处理.less后缀名的文件，需要安装&#x6c;&#x65;&#115;&#115;&#45;&#x6c;&#111;&#x61;&#100;&#x65;&#114;&#x40;&#x35;&#46;&#48;&#46;&#48; less"></a>如果要处理.less后缀名的文件，需要安装<a href="mailto:&#x6c;&#x65;&#115;&#115;&#45;&#x6c;&#111;&#x61;&#100;&#x65;&#114;&#x40;&#x35;&#46;&#48;&#46;&#48;">&#x6c;&#x65;&#115;&#115;&#45;&#x6c;&#111;&#x61;&#100;&#x65;&#114;&#x40;&#x35;&#46;&#48;&#46;&#48;</a> less</h4><p>1.<code>cnpm i less-loader@5.0.0 less -D</code></p>
+<p>2.在<code>webpack.config.js</code>中的module.exports=&gt;module{}=&gt;rules:[]中添加匹配规则.</p>
+<pre class=" language-js"><code class="language-js">  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> test<span class="token punctuation">:</span> <span class="token regex">/\.less$/</span><span class="token punctuation">,</span> use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"style-loader"</span><span class="token punctuation">,</span> <span class="token string">"css-loader"</span><span class="token punctuation">,</span> <span class="token string">"less-loader"</span><span class="token punctuation">]</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span></code></pre>
+<h3 id="如果要处理-scss的文件，需要安装并配置sass-loader-node-sass"><a href="#如果要处理-scss的文件，需要安装并配置sass-loader-node-sass" class="headerlink" title="如果要处理.scss的文件，需要安装并配置sass-loader node-sass"></a>如果要处理.scss的文件，需要安装并配置sass-loader node-sass</h3><p><code>cnpm i sass-loader@7.0.0 node-sass -D</code></p>
+<h4 id="图片路径问题需要安装url-loader和file-loader"><a href="#图片路径问题需要安装url-loader和file-loader" class="headerlink" title="图片路径问题需要安装url-loader和file-loader"></a>图片路径问题需要安装<code>url-loader</code>和<code>file-loader</code></h4><p>1.</p>
+<pre><code>cnpm i url-loader@1.1.2 
+file-loader@2.0.0 -D</code></pre>
+<p>2.添加配置规则</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> test<span class="token punctuation">:</span> <span class="token regex">/\.jpg|png|gif|bmp$/</span><span class="token punctuation">,</span> use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"url-loader?limit=1190&amp;name=[hash:6]-[name][ext]"</span><span class="token punctuation">]</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//配置处理样式表中图片的规则</span>
+<span class="token comment" spellcheck="true">//?limit是限制图片大小单位字节，小于这个字节的图片以base64输出</span></code></pre>
+<h3 id="如果想要处理高级的ES语法，需要安装两套相关的包"><a href="#如果想要处理高级的ES语法，需要安装两套相关的包" class="headerlink" title="如果想要处理高级的ES语法，需要安装两套相关的包"></a>如果想要处理高级的ES语法，需要安装两套相关的包</h3><p>1.运行<code>cnpm i babel-core babel-loader babel-plugin-transform-runtime -D</code></p>
+<p>2.运行<code>cnpm i babel-preset-env babel-preset-stage-0 -D</code></p>
+<p>3.注意以<code>babel-preset</code>开头的包叫做语法，以</p>
+<p><code>babel-plugin</code>开头的叫做Babel插件</p>
+<p>4.匹配规则</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>test<span class="token punctuation">:</span><span class="token regex">/\.js$/</span><span class="token punctuation">,</span>use<span class="token punctuation">:</span><span class="token string">"babel-loader"</span><span class="token punctuation">,</span>exclude<span class="token punctuation">:</span><span class="token operator">/</span>node_modules<span class="token operator">/</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<p>添加转换js文件的loader,<code>exclude:/node_modules/</code>排除在外。</p>
+<p>5.在与<code>webpack.config.js</code>同级目录下添加<code>.babelrc</code>文件,在<code>babel-loader</code>执行的时候，会对其并使用这个配置文件</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token string">"plugins"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"transform-runtime"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+ <span class="token string">"presets"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"env"</span><span class="token punctuation">,</span><span class="token string">"stage-0"</span><span class="token punctuation">]</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<h3 id="babel文件说明"><a href="#babel文件说明" class="headerlink" title="babel文件说明"></a>babel文件说明</h3><ul>
+<li>babel-loader:它只负责进行转换，但是并不知道高级的ES语法，对应哪些低级的ES语法</li>
+<li>babel-preset-env 和 babel-preset-stage-0是转换高级语法到低级语法的一个字典库</li>
 </ul>
-<ul>
-<li>String =&gt;number   – 使用 <code>parseInt()</code> 或者 <code>parseFloat()</code></li>
-</ul>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
-<li>单行注释 <code>//</code></li>
-<li>多行注释 <code>/* */</code></li>
-<li>文档注释 <code>/** */</code>    </li>
-</ul>
-<pre><code>/**
-* 对两个操作数进行加法运算
-* @param &#123;number&#125; a 第一个操作数
-* @param &#123;number&#125; b 第而个操作数
-* @return result
-*/ 
-//&#123;&#125;中是说明数据类型</code></pre>
-<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><ul>
-<li><p><code>=</code>为变量赋值</p>
-</li>
-<li><p>‘++’,’–’ 一元操作符</p>
-</li>
-<li><p>算数操作符 7/2=3.5 7%2=1 4**2=16</p>
-</li>
-<li><p>比较操作符 &gt;=,&lt;=,  <code>==</code>值等 <code>===</code>值，类型全等 </p>
-<ul>
-<li>undefined == null =&gt;<code>true</code></li>
-<li>undefined === null =&gt;<code>false</code>        </li>
-</ul>
-</li>
-<li><p>逻辑操作符 与/或/非 &amp;&amp;/||/!</p>
-<ul>
-<li>false,0,””,null,undefind,NaN     </li>
-<li>true&amp;&amp;”hello” 符合条件执行hello</li>
-<li>false||”default” 如果false 返回“default”</li>
-<li>false &amp;&amp; “not print” 短路不打印一假全假</li>
-<li>true || “not print” 短路不打印一真全真</li>
-</ul>
-</li>
-<li><p>位操作符 （二进制运算 5 101 3 011）</p>
-<ul>
-<li>5&amp;3 = 1  </li>
-<li>5|3 = 7</li>
-<li>5^3 = 6 异或相同为1 相异为0  </li>
-<li>~5 =-6  +1变号</li>
-<li>5 &lt;&lt; 1 =10  二进制数向左移动一个单位（相当于十进制乘2）</li>
-</ul>
-</li>
-<li><p>三目运算符 </p>
-<pre><code>var temperature = 10;
-//返回值：在家
-console.log(temperature &gt; 15 ? &quot;出门&quot; :&quot;在家&quot;);
-</code></pre>
-</li>
-</ul>
-<pre><code>## 流程控制
-### 语句块
-+ 在语句块中`const`和`let`的作用域只能在语句块中使用，`var`则可以全局访问
-### 条件判断语句
-+ if()&#123;&#125;else if()&#123;&#125;else&#123;&#125;
-+ switch()&#123;case: break;
-  default:&#125;
-### 循环语句
-+ while()&#123;&#125;
-+ do&#123;&#125;while()
-+ for(let i = 0;i&lt;10;i+=2)
-+ break直接跳出，continue跳过当前次
-## 函数
-### 声明和调用
-+  function putInRefrigerator()&#123;&#125; //可选参数
- ### 函数表达式
-
-+ 匿名函数</code></pre>
-<p>var multiply = function(a,b){<br>return a*b;<br>}</p>
-<pre><code>+ 函数和变量的提升，可以先使用后声明</code></pre>
-
+<h3 id="exportdefalut-和-export的区别"><a href="#exportdefalut-和-export的区别" class="headerlink" title="exportdefalut 和 export的区别"></a>exportdefalut 和 export的区别</h3>
             </div>
             <hr/>
 
@@ -682,7 +634,7 @@ console.log(temperature &gt; 15 ? &quot;出门&quot; :&quot;在家&quot;);
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://crazyegg4.github.io/2020/09/21/Javascript%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0---%EF%BC%88%E4%B8%80%EF%BC%89/">https://crazyegg4.github.io/2020/09/21/Javascript%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0---%EF%BC%88%E4%B8%80%EF%BC%89/</a>
+                    <a href="https://crazyegg4.github.io/2020/09/27/webpack--2/">https://crazyegg4.github.io/2020/09/27/webpack--2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -719,11 +671,7 @@ console.log(temperature &gt; 15 ? &quot;出门&quot; :&quot;在家&quot;);
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -893,33 +841,27 @@ console.log(temperature &gt; 15 ? &quot;出门&quot; :&quot;在家&quot;);
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/21/TypeScript%E5%AE%89%E8%A3%85%E5%AD%A6%E4%B9%A0/">
+                <a href="/2020/09/29/webpack--3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="TypeScript基础学习---（一）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">TypeScript基础学习---（一）</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            typescript安装
-cnpm install -g typescript
-
-
-tsc index.js 编译实时生成js文件
-
-
-tsc –init
-终端-运行任务-tsc:监视-tsconfig.json
-修改tsconfig.js
+                            打包清除垃圾文件1.安装命令
+cnpm i clean-webpack-plugin -D
+2.在webpack.publish.config.js中导入模块
+const CleanWebpackPlugin = require('clea
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
                         </span>
                         <span class="publish-author">
                             
@@ -928,14 +870,6 @@ tsc –init
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -947,24 +881,30 @@ tsc –init
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/16/hello-world/">
+                <a href="/2020/09/25/webpack--1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            webpack的好处
+能处理静态资源的依赖关系（.scss .ts
+能优化项目代码（压缩合并文件，把图片转换为base64的编码格式）
+能把一些高级语法转换为低级语法(es6=&gt;es3)
+webpack能转换一些模板文件:vue
+
+w
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-25
                             </span>
                         <span class="publish-author">
                             
